@@ -1,0 +1,60 @@
+table {
+	font-family: arial, sans-serif;
+	border-collapse: collapse;
+	width: 50%;
+}
+
+td, th {
+	border: 1px solid #dddddd;
+	text-align: left;
+	padding: 8px;
+}
+
+tr:nth-child(even) {
+	/*background-color: #dddddd;*/
+}
+th {
+	background-color: #dddddd;
+}
+
+img {
+	height: 50px;
+}
+
+body {
+	font-size: 1.4rem;
+	background-image: url("../img/bg6.jpg");
+	background-repeat: no-repeat;
+	background-size: cover;
+	background-position: center;
+	background-attachment: fixed;
+	/*font-family: 'Vollkorn SC', serif;*/
+	font-family: 'Oswald', sans-serif;
+	
+
+}
+
+.container {
+	width: 75%;
+	text-align: center;
+	margin: auto;
+}
+
+#snowflakeContainer {
+    position: absolute;
+    left: 0px;
+    top: 0px;
+}
+.snowflake {
+    padding-left: 15px;
+    font-family: Cambria, Georgia, serif;
+    font-size: 14px;
+    line-height: 24px;
+    position: fixed;
+    color: #FFFFFF;
+    user-select: none;
+    z-index: 1000;
+}
+.snowflake:hover {
+    cursor: default;
+}
