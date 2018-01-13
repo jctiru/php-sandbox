@@ -103,8 +103,8 @@
         		url: 'assets/lib/name-suggestion.php',
         		type: 'POST',
         		data: {name: $('#searchName').val()},
-        		success: function(jsonData){
-        			if(jsonData != ""){
+        		success: function(data){
+        			if(data != ""){
         				// data = JSON.parse(jsonData);
         				$('#suggestionsBox').html(data);
         			} else {

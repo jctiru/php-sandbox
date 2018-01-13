@@ -1,22 +1,15 @@
 <?php 
-
-	$names=['Adrian', 'Jeremy', 'Angelo', 'Linus', 'Xelo', 'Robert'];
-
+	$names=['Adrian', 'Jeremy', 'Angelo', 'Linus', 'Xelo', 'Robert', 'Jonathan'];
 	if(isset($_POST['name'])){
 		$searchName = $_POST['name'];
-		$found = false;
-		$nameList = "";
 		if(!empty($searchName))
 		{
 			foreach ($names as $name) {
 				$name = strtolower($name);
 				if (strpos($name, $searchName) !== false){ 
-		    		echo $name;
+		    		echo ucwords($name)."<br>";
 				}
-			}
-			// if ($found == false) {
-			// 	echo "");
-			// }
+			}	
 		}
 	}
 
