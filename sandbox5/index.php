@@ -1,33 +1,35 @@
-<?php 
-	require 'config/config.php';
-	require 'config/db.php';
-	// Create Query
-	$query = 'SELECT * FROM posts';
-	// Get Result
-	$result = mysqli_query($conn, $query);
+<?php
+require 'config/config.php';
+require 'config/db.php';
+// Create Query
+$query = 'SELECT * FROM posts ORDER BY created_at DESC';
+// Get Result
+$result = mysqli_query($conn, $query);
 
-	// Fetch Data
-	$posts = mysqli_fetch_all($result, MYSQLI_ASSOC);
+// Fetch Data
+$posts = mysqli_fetch_all($result, MYSQLI_ASSOC);
 
-	//var_dump($posts);
+//var_dump($posts);
 
-	// Free Result
-	mysqli_free_result($result);
+// Free Result
+mysqli_free_result($result);
 
-	// Close Connection
-	mysqli_close($conn);
+// Close Connection
+mysqli_close($conn);
 
- ?>
+?>
 
 <!DOCTYPE html>
 <html>
 <head>
 	<title>PHP Blog</title>
 	<link rel="stylesheet" type="text/css" href="https://bootswatch.com/4/journal/bootstrap.min.css">
+	<link rel="stylesheet" type="text/css" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta.3/js/bootstrap.bundle.min.js">
 </head>
 <body>
+	<?php require 'inc/navbar.php'; ?>
 	<div class="container">
-	<h1>Posts</h1>
+		<h1>Posts</h1>
 		<?php foreach ($posts as $post): ?>
 			<div class="card mb-2">
 				<div class="card-body">
@@ -39,7 +41,8 @@
 					<a class="btn btn-primary" href="<?php echo ROOT_URL ?>post.php?id=<?php echo $post['id'] ?>">Read more</a>
 				</div>
 			</div>
-		<?php endforeach; ?>
+		<?php endforeach;?>
 	</div>
+	<script type="text/javascript" src="https://code.jquery.com/jquery-3.2.1.min.js"></script>
 </body>
 </html>
