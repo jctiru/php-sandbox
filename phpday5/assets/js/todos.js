@@ -10,21 +10,21 @@ $(document).ready(function() {
 		if(event.which ==13){
 			var todoText = $(this).val();
 			$.post('create.php', {task: todoText}, function(data, textStatus, xhr) {
-				var newLine = "<li id=" + data +"><span> <i class='fa fa-trash'></i>"+ todoText+ "</span></li>";
+				var newLine = "<li id=" + data +"><span> <i class='fa fa-trash'></i></span>"+ todoText+ "</li>";
 				$('ul').append(newLine);
 			});
 			$(this).val('');
 		}
 	});
 
-	$('ul').on('click', 'span', function(){
+	$('ul').on('click', 'span', function(e){
 		$(this).parent().fadeOut(500, function(){
 			$(this).remove();
 		});
-		alert("remove");
 		// console.log($(this).parent().attr('id'));
 		$.post('delete.php', {id: $(this).parent().attr('id')}, function(data, textStatus, xhr) {
 			console.log(data);
 		});
+		e.stopPropagation();
 	});
 });
