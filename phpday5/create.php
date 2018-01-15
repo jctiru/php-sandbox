@@ -7,4 +7,6 @@
 	fwrite($file, json_encode($todos, JSON_PRETTY_PRINT));
 	fclose($file);
 	// var_dump($todos);
+	end($todos);
+	echo key($todos);
  ?>

@@ -1,14 +1,14 @@
-[
-	{
-		"task": "First task",
-		"done": true
-	},
-	{
-		"task": "Second task",
-		"done": true
-	},
-	{
-		"task": "Third task",
-		"done": true
-	},
-]
+{
+    "4": {
+        "task": "First task",
+        "done": false
+    },
+    "5": {
+        "task": "Second task",
+        "done": false
+    },
+    "6": {
+        "task": "Third task",
+        "done": false
+    }
+}

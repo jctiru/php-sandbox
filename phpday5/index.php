@@ -17,7 +17,7 @@ $todos = json_decode($todos, true);
 
     <body>
         <div class="container">
-            <div class="card border-primary mb-3" style="max-width: 20rem;">
+            <div class="card border-primary mb-3 mt-3" style="max-width: 20rem;">
                 <div class="card-header">
                     <h1>To-Do List</h1>
                 </div>
@@ -25,7 +25,7 @@ $todos = json_decode($todos, true);
                     <h4 class="card-title"><input id="newTask" class="form-control" type="text" placeholder="Add New Task"></h4>
                     <p class="card-text">
                         <ul>
-                            <?php foreach($todos as $key=>$todo): ?>
+                            <?php foreach($todos as $key => $todo): ?>
                             <li id="<?php echo $key; ?>" class='<?php echo ($todo["done"])? "completed" : "";?>'>
                                 <span><i class="fa fa-trash"></i><?php echo $todo['task'] ?></span>
                             </li>
