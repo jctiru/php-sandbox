@@ -23,13 +23,14 @@ $todos = json_decode($todos, true);
                 </div>
                 <div class="card-body text-primary">
                     <h4 class="card-title"><input id="newTask" class="form-control" type="text" placeholder="Add New Task"></h4>
-                        <ul>
-                            <?php foreach($todos as $key => $todo): ?>
-                            <li id="<?php echo $key; ?>" class='<?php echo ($todo["done"])? "completed" : "";?>'>
-                                <span><i class="fa fa-trash"></i></span><?php echo $todo['task'] ?>
-                            </li>
-                            <?php endforeach; ?>
-                        </ul>
+                    <ul>
+                        <?php foreach($todos as $key => $todo): ?>
+                        <li id="<?php echo $key; ?>" class='<?php echo ($todo["done"])? "completed" : "";?>'>
+                            <span><i class="fa fa-trash"></i></span>
+                            <?php echo $todo['task'] ?>
+                        </li>
+                        <?php endforeach; ?>
+                    </ul>
                 </div>
             </div>
         </div>
