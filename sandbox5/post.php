@@ -42,6 +42,7 @@ mysqli_close($conn);
 	<link rel="stylesheet" type="text/css" href="https://bootswatch.com/4/journal/bootstrap.min.css">
 </head>
 <body>
+	<?php require 'inc/navbar.php'; ?>
 	<div class="container">
 	<a class="btn btn-primary" href="<?php echo ROOT_URL; ?>">Go Back</a>
 		<h1>Post</h1>
@@ -61,5 +62,6 @@ mysqli_close($conn);
 			</div>
 		</div>
 	</div>
+	<script type="text/javascript" src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta.3/js/bootstrap.bundle.min.js"></script>
 </body>
 </html>

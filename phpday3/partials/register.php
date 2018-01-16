@@ -10,6 +10,5 @@
             <p id="match"></p>
             <button class="btn btn-lg btn-primary btn-block" id="registerButton" name="registerButton" type="submit">Register</button>
         </form>      
-        
     </div>
 </div>

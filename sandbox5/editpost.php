@@ -41,14 +41,12 @@ mysqli_free_result($result);
 mysqli_close($conn);
 
 ?>
-?>
  
 <!DOCTYPE html>
 <html>
 <head>
 	<title>PHP Blog</title>
 	<link rel="stylesheet" type="text/css" href="https://bootswatch.com/4/journal/bootstrap.min.css">
-	<link rel="stylesheet" type="text/css" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta.3/js/bootstrap.bundle.min.js">
 </head>
 <body>
 	<?php require 'inc/navbar.php'; ?>
@@ -73,5 +71,6 @@ mysqli_close($conn);
 		</form>
 	</div>
 	<script type="text/javascript" src="https://code.jquery.com/jquery-3.2.1.min.js"></script>
+	<script type="text/javascript" src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta.3/js/bootstrap.bundle.min.js"></script>
 </body>
 </html>

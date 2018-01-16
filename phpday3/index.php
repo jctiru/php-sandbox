@@ -3,11 +3,11 @@
 
 <head>
     <?php 
-    if(isset($_SESSION['username']) && isset($_SESSION['password'])){
-        session_start();
-        $_SESSION['username'] = $_POST['username'];
-        $_SESSION['password'] = $_POST['password'];
-    }
+    session_start();
+    // if(isset($_SESSION['username']) && isset($_SESSION['password'])){
+    //     $_SESSION['username'] = $_POST['username'];
+    //     $_SESSION['password'] = $_POST['password'];
+    // }
     ?>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
@@ -32,12 +32,18 @@
                 </div>
                 <div class="col-lg-5 col-12">
                     <div class="row">
-                        <div class="col-md-6">
-                            <?php require 'partials/register.php'; ?>
-                        </div>
-                        <div class="col-md-6">
-                            <?php require 'partials/login.php'; ?>
-                        </div>
+                        <?php if(isset($_SESSION['username']) && isset($_SESSION['password'])) :?>
+                            <div class="col-md-12">
+                                <?php require 'partials/userPanel.php'; ?>
+                            </div>
+                        <?php else: ?>
+                            <div class="col-md-6">
+                                <?php require 'partials/register.php'; ?>
+                            </div>
+                            <div class="col-md-6">
+                                <?php require 'partials/login.php'; ?>
+                            </div>
+                        <?php endif ;?>
                     </div>
                 </div>
             </div>
@@ -54,8 +60,7 @@
                             <option>Isekai</option>
                             <option>Action</option>
                         </select>
-                        <button type="button" class="btn btn-primary ml-1">Search</button>
-                        
+                        <button type="button" class="btn btn-primary ml-1">Search</button>                 
                     </form>
                 </div>
                 <div class="col-3">
