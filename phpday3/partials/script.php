@@ -81,9 +81,9 @@
         }
     });
 </script>
-<!-- Edit Modal -->
+<!-- Modal -->
 <script type="text/javascript">
-    $(".modalEditButton").click(function(){
+    $(".modalEditButton, .modalDeleteButton").click(function(){
         var index = $(this).data('index');
         $.ajax({
             url: 'partials/modal.php',
@@ -93,54 +93,30 @@
                 var jsonData = JSON.parse(data);
                 $('#modalForm').attr('action', 'edit.php?index=' + index);
                 $('.modalItemImage').attr('src', jsonData.img);
-                $('#modalItemTitle').val(jsonData.name);
-                $('#modalItemCategory').val(jsonData.category);
-                $('#modalItemDescription').html(jsonData.description);
-                $('#modalItemPrice').val(jsonData.price);
-            }
-        });       
-    });
-</script>
-<!-- Delete Modal -->
-<script type="text/javascript">
-    $(".modalDeleteButton").click(function(){
-        var index = $(this).data('index');
-        $.ajax({
-            url: 'partials/modal.php',
-            type: 'POST',
-            data: {index: index},
-            success: function(data){
-                var jsonData = JSON.parse(data);
-                $('#modalForm').attr('action', 'edit.php?index=' + index);
-                $('.modalItemImage').attr('src', jsonData.img);
-                $('#modalItemTitle').val(jsonData.name);
-                $('#modalItemCategory').val(jsonData.category);
-                $('#modalItemDescription').html(jsonData.description);
-                $('#modalItemPrice').val(jsonData.price);
-                $('#modalItemDelete').attr('data-index', index);
+                $('.modalItemTitle').val(jsonData.name);
+                $('.modalItemTitle').html(jsonData.name);
+                $('.modalItemCategory').val(jsonData.category);
+                $('.modalItemCategory').html(jsonData.category);
+                $('.modalItemDescription').html(jsonData.description);
+                $('.modalItemPrice').val(jsonData.price);
+                $('.modalItemPrice').html(jsonData.price);
+                $('.modalItemDelete').attr('data-index', index);
             }
         });       
     });
 </script>
 <!-- Delete Item -->
-<!-- <script type="text/javascript">
-    $("#modalItemDelete").click(function(){
+<script type="text/javascript">
+    $(".modalItemDelete").click(function(){
         var index = $(this).data('index');
         alert(index);
         $.ajax({
-            url: 'partials/modal.php',
+            url: 'delete.php',
             type: 'POST',
             data: {index: index},
             success: function(data){
-                var jsonData = JSON.parse(data);
-                $('#modalForm').attr('action', 'edit.php?index=' + index);
-                $('#modalItemImage').attr('src', jsonData.img);
-                $('#modalItemTitle').val(jsonData.name);
-                $('#modalItemCategory').val(jsonData.category);
-                $('#modalItemDescription').html(jsonData.description);
-                $('#modalItemPrice').val(jsonData.price);
-                $('#modalItemDelete').attr('data-index', index);
+                location.reload();
             }
         });     
     });
-</script> -->
+</script>

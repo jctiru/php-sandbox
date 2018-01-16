@@ -37,7 +37,7 @@
         <div class="modal-dialog" role="document">
             <div class="modal-content">
                 <div class="modal-header">
-                    <h5 class="modal-title" id="modalTitle">Edit Item</h5>
+                    <h5 class="modal-title">Edit Item</h5>
                     <button type="button" class="close" data-dismiss="modal" aria-label="Close">
                         <span aria-hidden="true">&times;</span>
                     </button>
@@ -47,19 +47,19 @@
                     <form id="modalForm" action="" method="POST">
                     	<div class="form-group">
                     		<label>Title</label>
-	                    	<input class="form-control" type="text" id="modalItemTitle" name="name">
+	                    	<input class="form-control modalItemTitle" type="text" name="name">
                     	</div>
                     	<div class="form-group">
                     		<label>Category</label>
-	                    	<input class="form-control" type="text" id="modalItemCategory" name="category">
+	                    	<input class="form-control modalItemCategory" type="text" name="category">
                     	</div>
                     	<div class="form-group">
                     		<label>Description</label>
-	                    	<textarea class="form-control" id="modalItemDescription" name="description"></textarea>
+	                    	<textarea class="form-control modalItemDescription" name="description"></textarea>
                     	</div>
                     	<div class="form-group">
                     		<label>Price</label>
-	                    	<input class="form-control" type="text" id="modalItemPrice" name="price">
+	                    	<input class="form-control modalItemPrice" type="text" name="price">
                     	</div>
                     </form>
                 </div>
@@ -75,35 +75,27 @@
         <div class="modal-dialog" role="document">
             <div class="modal-content">
                 <div class="modal-header">
-                    <h5 class="modal-title" id="modalTitle">Edit Item</h5>
+                    <h5 class="modal-title">Delete Item</h5>
                     <button type="button" class="close" data-dismiss="modal" aria-label="Close">
                         <span aria-hidden="true">&times;</span>
                     </button>
                 </div>
                 <div id="modalBody" class="modal-body">
-                	<img  class="modalItemImage" style="width: 100%;" src="">
-                    <form id="modalForm" action="" method="POST">
-                    	<div class="form-group">
-                    		<label>Title</label>
-	                    	<input class="form-control" type="text" id="modalItemTitle" name="name">
-                    	</div>
-                    	<div class="form-group">
-                    		<label>Category</label>
-	                    	<input class="form-control" type="text" id="modalItemCategory" name="category">
-                    	</div>
-                    	<div class="form-group">
-                    		<label>Description</label>
-	                    	<textarea class="form-control" id="modalItemDescription" name="description"></textarea>
-                    	</div>
-                    	<div class="form-group">
-                    		<label>Price</label>
-	                    	<input class="form-control" type="text" id="modalItemPrice" name="price">
-                    	</div>
-                    </form>
+                    <div class="card">
+                    <img class="card-img-top modalItemImage" src="">
+                    <div class="card-body">
+                        <h4 class="card-title modalItemTitle"><strong></strong></h4>
+                        <h6 class="card-subtitle mb-3 text-muted modalItemCategory"></h6>
+                        <p class="card-text modalItemDescription"></p>
+                    </div>
+                    <div class="card-footer">
+                        <p class="modalItemPrice"></p>
+                    </div>
+                </div>
                 </div>
                 <div class="modal-footer">
                     <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
-                    <button type="button" id="modalItemDelete" data-index="" class="btn btn-danger">Delete</button>
+                    <button type="button" data-index="" class="btn btn-danger modalItemDelete">Delete</button>
                 </div>
             </div>
         </div>
