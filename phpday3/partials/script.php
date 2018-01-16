@@ -81,10 +81,52 @@
         }
     });
 </script>
-<!-- Modal -->
+<!-- Edit Modal -->
 <script type="text/javascript">
-    $(".modalButton").click(function(){
+    $(".modalEditButton").click(function(){
         var index = $(this).data('index');
+        $.ajax({
+            url: 'partials/modal.php',
+            type: 'POST',
+            data: {index: index},
+            success: function(data){
+                var jsonData = JSON.parse(data);
+                $('#modalForm').attr('action', 'edit.php?index=' + index);
+                $('.modalItemImage').attr('src', jsonData.img);
+                $('#modalItemTitle').val(jsonData.name);
+                $('#modalItemCategory').val(jsonData.category);
+                $('#modalItemDescription').html(jsonData.description);
+                $('#modalItemPrice').val(jsonData.price);
+            }
+        });       
+    });
+</script>
+<!-- Delete Modal -->
+<script type="text/javascript">
+    $(".modalDeleteButton").click(function(){
+        var index = $(this).data('index');
+        $.ajax({
+            url: 'partials/modal.php',
+            type: 'POST',
+            data: {index: index},
+            success: function(data){
+                var jsonData = JSON.parse(data);
+                $('#modalForm').attr('action', 'edit.php?index=' + index);
+                $('.modalItemImage').attr('src', jsonData.img);
+                $('#modalItemTitle').val(jsonData.name);
+                $('#modalItemCategory').val(jsonData.category);
+                $('#modalItemDescription').html(jsonData.description);
+                $('#modalItemPrice').val(jsonData.price);
+                $('#modalItemDelete').attr('data-index', index);
+            }
+        });       
+    });
+</script>
+<!-- Delete Item -->
+<!-- <script type="text/javascript">
+    $("#modalItemDelete").click(function(){
+        var index = $(this).data('index');
+        alert(index);
         $.ajax({
             url: 'partials/modal.php',
             type: 'POST',
@@ -99,21 +141,6 @@
                 $('#modalItemPrice').val(jsonData.price);
                 $('#modalItemDelete').attr('data-index', index);
             }
-        });       
-    });
-</script>
-<!-- Delete Item -->
-<script type="text/javascript">
-    $("#modalItemDelete").click(function(){
-        var index = $(this).data('index');
-        $.ajax({
-            url: 'delete.php',
-            type: 'POST',
-            data: {index: index},
-            success: function(data){
-                // alert(data);
-                location.reload();
-            }
         });     
     });
-</script>
+</script> -->
