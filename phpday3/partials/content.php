@@ -64,7 +64,8 @@
                 </div>
                 <div class="modal-footer">
                     <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
-                    <button type="submit" form="modalForm" class="btn btn-primary">Save changes</button>
+                    <button type="submit" form="modalForm" class="btn btn-primary">Save</button>
+                    <button type="button" id="modalItemDelete" data-index="" class="btn btn-danger">Delete</button>
                 </div>
             </div>
         </div>

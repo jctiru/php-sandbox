@@ -97,7 +97,23 @@
                 $('#modalItemCategory').val(jsonData.category);
                 $('#modalItemDescription').html(jsonData.description);
                 $('#modalItemPrice').val(jsonData.price);
+                $('#modalItemDelete').attr('data-index', index);
             }
         });       
+    });
+</script>
+<!-- Delete Item -->
+<script type="text/javascript">
+    $("#modalItemDelete").click(function(){
+        var index = $(this).data('index');
+        $.ajax({
+            url: 'delete.php',
+            type: 'POST',
+            data: {index: index},
+            success: function(data){
+                // alert(data);
+                location.reload();
+            }
+        });     
     });
 </script>
