@@ -10,7 +10,7 @@
                     <input style="margin-left: 20px;" type="checkbox" value="remember-me"> Remember me
                 </label>
             </div>
-        <button class="btn btn-lg btn-primary btn-block" type="submit" id="signInButton">Sign in</button>
+        <button class="btn btn-lg btn-primary btn-block" type="submit" id="signInButton"><i class="fa fa-sign-in fa-lg"></i> Sign in</button>
         </form>
         <p id="signInStatus"></p>          
     </div>

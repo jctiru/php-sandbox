@@ -5,6 +5,20 @@
 <script type="text/javascript" src="js/popper.min.js"></script>
 <!-- <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta.3/js/bootstrap.min.js" integrity="sha384-a5N7Y/aK3qNeh15eJKGWxsqtnX/wWdSZSKp+81YjTmS15nvnvxKHuzaWwXHDli+4" crossorigin="anonymous"></script> -->
 <script type="text/javascript" src="js/bootstrap.bundle.min.js"></script>
+
+<!-- Initial Load -->
+<!-- <script type="text/javascript">
+    $(document).ready(function() {
+        $.ajax({
+                 url: 'partials/content.php',
+                 type: 'GET',
+                 success: function(data){
+                    $('#main-content').html(data);
+                    console.log(data);
+                 }  
+             });
+    });
+</script> -->
 <!-- Compare passwords  -->
 <script type="text/javascript">
     $('#registerPassword, #registerPassword2').on('keyup', function() {
@@ -86,7 +100,7 @@
     $(".modalEditButton, .modalDeleteButton").click(function(){
         var index = $(this).data('index');
         $.ajax({
-            url: 'partials/modal.php',
+            url: 'modal.php',
             type: 'POST',
             data: {index: index},
             success: function(data){
@@ -120,3 +134,24 @@
         });     
     });
 </script>
+<!-- Add to Cart -->
+<script type="text/javascript">
+    var items = [];
+    $(".cartButton").click(function(){
+        if(items[parseInt($(this).data('index'))] == undefined){
+            items[parseInt($(this).data('index'))] = 1;
+        } else {
+            items[parseInt($(this).data('index'))] += 1;
+        }      
+        $.ajax({
+            url: 'cartItems.php',
+            type: 'POST',
+            data: {cart: items},
+            success: function(data){
+                $('#cartItems').html(" " + data);
+            }
+        });
+        
+    });
+</script>
+

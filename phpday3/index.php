@@ -4,10 +4,9 @@
 <head>
     <?php 
     session_start();
-    // if(isset($_SESSION['username']) && isset($_SESSION['password'])){
-    //     $_SESSION['username'] = $_POST['username'];
-    //     $_SESSION['password'] = $_POST['password'];
-    // }
+    if(!isset($_SESSION['totalCartItems'])){
+        $_SESSION['totalCartItems'] = 0;
+    }
     ?>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
@@ -48,29 +47,9 @@
                 </div>
             </div>
         </div>
-        <div class="container">
-            <div class="row">
-                <div class="col-6">
-                    <form class="form-inline">
-                        <select class="form-control" id="exampleFormControlSelect1">
-                            <option disabled selected>Category</option>
-                            <option>All</option>
-                            <option>Horror</option>
-                            <option>Romantic Comedy</option>
-                            <option>Isekai</option>
-                            <option>Action</option>
-                        </select>
-                        <button type="button" class="btn btn-primary ml-1">Search</button>                 
-                    </form>
-                </div>
-                <div class="col-3">
-                </div>
-            </div>
-            <div class="row">
-                <div class="col-md-12">
-                    <?php require 'partials/content.php'; ?>
-                </div>
-            </div>
+        <div class="main-content">
+            <?php //require 'partials/cart-page.php' ?>
+            <?php require 'partials/content.php'; ?>
         </div>
         <?php require 'partials/script.php'; ?>
     </div>
