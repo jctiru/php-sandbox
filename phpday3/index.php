@@ -16,7 +16,7 @@
 </head>
 
 <body>
-    <?php print_r($_SESSION['cart']) ?>
+    <?php //print_r($_SESSION['cart']) ?>
     <div>
         <?php require_once 'partials/navbar.php'; ?>
         <div class="jumbotron mt-1">

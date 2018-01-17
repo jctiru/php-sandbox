@@ -123,6 +123,7 @@
 <!-- Add to Cart -->
 <script type="text/javascript">
     var items = [];
+    // Function
     $(".cartButton").click(function(){
         if(items[parseInt($(this).data('index'))] == undefined){
             items[parseInt($(this).data('index'))] = 1;
@@ -134,7 +135,15 @@
             type: 'POST',
             data: {cart: items},
             success: function(data){
-                $('#cartItems').html(" " + data);
+                var jsonData = JSON.parse(data);
+                var totalItems = 0;
+                for (var i = 0; i < jsonData.length; i++) {
+                    if(jsonData > 0){
+                        totalItems += parseInt(jsonData[i]);
+                    }
+                }
+                // alert(totalItems);
+                $('#cartItems').html(" " + totalItems);
             }
         });
         

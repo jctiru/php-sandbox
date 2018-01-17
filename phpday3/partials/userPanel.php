@@ -5,11 +5,7 @@
         <?php if ($_SESSION['username'] != 'admin'): ?>
         	<h4><i class="fa fa-shopping-cart fa-lg"></i>
                 <strong id="cartItems">
-                <?php if(isset($_SESSION['cartTotalItems'])): ?>
-                <?php echo $_SESSION['cartTotalItems']; ?>
-                <?php else: ?>
-                0
-                <?php endif; ?>  
+                <?php echo $_SESSION['cartTotalItems'] ?> 
                 </strong> Item/s</h4>
             <a href="checkout.php" class="btn btn-lg btn-info btn-block mb-2 mt-2"><i class="fa fa-shopping-cart fa-lg"></i> Check-out Cart</a>
         <?php endif ?>

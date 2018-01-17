@@ -4,8 +4,8 @@
 <head>
     <?php 
     session_start();
-    if(!isset($_SESSION['totalCartItems'])){
-        $_SESSION['totalCartItems'] = 0;
+    if(!isset($_SESSION['cartTotalItems'])){
+        $_SESSION['cartTotalItems'] = 0;
     }
     ?>
     <meta charset="utf-8">
