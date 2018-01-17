@@ -4,9 +4,6 @@
 <head>
     <?php 
     session_start();
-    if(!isset($_SESSION['cartTotalItems'])){
-        $_SESSION['cartTotalItems'] = 0;
-    }
     ?>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
@@ -16,7 +13,6 @@
 </head>
 
 <body>
-    <?php print_r($_SESSION['cart']) ?>
     <div>
         <?php require_once 'partials/navbar.php'; ?>
         <div class="jumbotron mt-1">

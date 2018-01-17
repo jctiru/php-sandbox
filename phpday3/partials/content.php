@@ -36,15 +36,11 @@ $items  = json_decode($string, true);
                                     </p>
                                 </div>
                                 <div class="card-footer">
-                                    <?php if (isset($_SESSION['username'])): ?>
                                     <?php if ($_SESSION['username'] == 'admin'): ?>
-                                    <button data-index="<?php echo $index ?>" data-toggle="modal" data-target="#editModal" class="btn btn-block btn-primary modalEditButton"><i class="fa fa-pencil-square-o fa-lg"></i> Edit</button>
-                                    <button data-index="<?php echo $index ?>" data-toggle="modal" data-target="#deleteModal" class="btn btn-block btn-danger modalDeleteButton"><i class="fa fa-trash-o fa-lg"></i> Delete</button>
+                                        <button data-index="<?php echo $index ?>" data-toggle="modal" data-target="#editModal" class="btn btn-block btn-primary modalEditButton"><i class="fa fa-pencil-square-o fa-lg"></i> Edit</button>
+                                        <button data-index="<?php echo $index ?>" data-toggle="modal" data-target="#deleteModal" class="btn btn-block btn-danger modalDeleteButton"><i class="fa fa-trash-o fa-lg"></i> Delete</button>
                                     <?php else: ?>
-                                    <button data-index="<?php echo $index ?>" class="btn btn-block btn-primary mr-1 cartButton"><i class="fa fa-shopping-cart fa-lg"></i> Add to Cart</button>
-                                    <?php endif?>
-                                    <?php else: ?>
-                                    <button data-index="<?php echo $index ?>" class="btn btn-block btn-primary mr-1 cartButton"><i class="fa fa-shopping-cart fa-lg"></i> Add to Cart</button>
+                                        <button data-index="<?php echo $index ?>" class="btn btn-block btn-primary mr-1 cartButton"><i class="fa fa-shopping-cart fa-lg"></i> Add to Cart</button>
                                     <?php endif?>
                                 </div>
                             </div>

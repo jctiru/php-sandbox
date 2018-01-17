@@ -54,14 +54,14 @@
             });
         } else {
             $('#usercheck').html('');
-        }   
+        }
     }
 </script>
 <!-- Authenticate sign in -->
 <script type="text/javascript">
     $('#signInButton').on('click', function(e){
         if(($('#loginUsername').val().trim().length == 0) || ($('#loginPassword').val().trim().length == 0)){
-            // 
+            //
         } else {
             $.ajax({
                 url: 'authenticate.php',
@@ -74,10 +74,10 @@
                         location.reload();
                     } else {
                         $('#signInStatus').css('color', '#FF7851');
-                    }                   
+                    }
                 }
             });
-            e.preventDefault();           
+            e.preventDefault();
         }
     });
 </script>
@@ -102,7 +102,7 @@
                 $('.modalItemPrice').html(jsonData.price);
                 $('.modalItemDelete').attr('data-index', index);
             }
-        });       
+        });
     });
 </script>
 <!-- Delete Item -->
@@ -117,36 +117,58 @@
             success: function(data){
                 location.reload();
             }
-        });     
+        });
     });
 </script>
 <!-- Add to Cart -->
 <script type="text/javascript">
-    var items = [];
-    // Function
     $(".cartButton").click(function(){
-        if(items[parseInt($(this).data('index'))] == undefined){
-            items[parseInt($(this).data('index'))] = 1;
-        } else {
-            items[parseInt($(this).data('index'))] += 1;
-        }      
         $.ajax({
             url: 'cartItems.php',
             type: 'POST',
-            data: {cart: items},
+            data: {index: $(this).data('index')},
             success: function(data){
-                var jsonData = JSON.parse(data);
-                var totalItems = 0;
-                for (var i = 0; i < jsonData.length; i++) {
-                    if(jsonData > 0){
-                        totalItems += parseInt(jsonData[i]);
-                    }
-                }
-                // alert(totalItems);
-                $('#cartItems').html(" " + totalItems);
+                $('#cartItems').html(" " + data);
             }
         });
-        
+
     });
 </script>
+<!-- Get Cart Total Cost -->
+<script type="text/javascript">
+    $.ajax({
+        url: 'cartItems.php',
+        type: 'GET',
+        success: function(data){
+            $('#cartTotalCost').html(data);
+        }
+    });
+</script>
+<!-- Cartpage Actions -->
+<script type="text/javascript">
+    var fadeTime = 300;
 
+    $('.product-quantity').change( function() {
+        updateQuantity(this);
+    });
+    $('.product-removal').click( function() {
+        removeItem(this);
+    });
+
+    function updateQuantity(quantityInput)
+    {
+        /* Calculate line price */
+        var productRow = $(quantityInput).parent().parent();
+        var price = parseFloat(productRow.find('.product-price').text());
+        var quantity = $(quantityInput).val();
+        var linePrice = price * quantity;
+        // console.log(linePrice);
+        productRow.find('.product-lineprice').each(function () {
+        $(this).fadeOut(fadeTime, function() {
+            $(this).text(linePrice.toFixed(2));
+            // recalculateCart();
+            $(this).fadeIn(fadeTime);
+        });
+      });  
+    }
+</script>
