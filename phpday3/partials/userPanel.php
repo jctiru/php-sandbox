@@ -11,7 +11,7 @@
                 0
                 <?php endif; ?>  
                 </strong> Item/s</h4>
-            <button class="btn btn-lg btn-info btn-block mb-2 mt-2"><i class="fa fa-shopping-cart fa-lg"></i> Check-out Cart</button>
+            <a href="checkout.php" class="btn btn-lg btn-info btn-block mb-2 mt-2"><i class="fa fa-shopping-cart fa-lg"></i> Check-out Cart</a>
         <?php endif ?>
         <form method="POST" action="logout.php">
             <button class="btn btn-lg btn-primary btn-block" id="signOut" name="signOut" type="submit"><i class="fa fa-sign-out fa-lg"></i> Log Out</button>

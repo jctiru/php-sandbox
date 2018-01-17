@@ -1,7 +1,7 @@
 <?php 
 	session_start();
 	$_SESSION['cart'] = $_POST['cart'];
-	$totalItems = $_SESSION['cartTotalItems'];
+	$totalItems = 0;
 	// print_r($_SESSION['cart']);
 	foreach ($_SESSION['cart'] as $key => $value) {
 		if(isset($value)){
